@@ -283,7 +283,7 @@ CONTACT & SUPPORT
 ================================================================================
 
 For questions about this project:
-Email: hello@littlepausepages.com
+Email: little.pause.pages@gmail.com
 
 For deployment help:
 See DEPLOYMENT_GUIDE.md

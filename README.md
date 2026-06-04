@@ -203,7 +203,7 @@ little-pause-website/
 ## Contact & Support
 
 For questions or support regarding this website, contact:
-- **Email**: hello@littlepausepages.com
+- **Email**: little.pause.pages@gmail.com
 
 ---
 

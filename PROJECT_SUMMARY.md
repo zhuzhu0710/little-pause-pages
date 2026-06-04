@@ -335,4 +335,4 @@ This project delivers a complete, professional, and original brand website for L
 
 ---
 
-**Questions?** Contact: hello@littlepausepages.com
+**Questions?** Contact: little.pause.pages@gmail.com

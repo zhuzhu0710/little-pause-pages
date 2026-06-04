@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Little Pause Pages</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header / Navigation -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-section">
+                <img src="assets/logo.png" alt="Little Pause Pages Logo" class="logo">
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link active">About</a>
+                <a href="books.html" class="nav-link">Books</a>
+                <a href="samples.html" class="nav-link">Free Samples</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">About Little Pause Pages</h1>
+            <p class="hero-subtitle">Calm moments for growing minds</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="about-content">
+        <div class="about-container">
+            <div class="about-section">
+                <h2>Our Story</h2>
+                <p>Little Pause Pages was born from a simple idea: toddlers deserve calm, engaging activities that don't require batteries, screens, or complicated setup. We believe in the power of quiet moments—for children and parents alike.</p>
+                <p>Every page is thoughtfully designed with toddlers ages 1–4 in mind. Simple shapes, bold colors, and age-appropriate themes create the perfect balance between engagement and calm.</p>
+            </div>
+
+            <div class="about-section">
+                <h2>Our Mission</h2>
+                <p>We're here to make parenting a little easier and a little more peaceful. By providing affordable, printable activities, we help parents create moments of connection and creativity—whether at home, in restaurants, during travel, or in waiting rooms.</p>
+            </div>
+
+            <div class="about-section">
+                <h2>Why We Do This</h2>
+                <p>We know that parenting a toddler is both joyful and challenging. Little Pause Pages offers a simple solution: high-quality, developmental activities that keep little hands busy and minds engaged. No screen time. No mess. Just creativity and calm.</p>
+            </div>
+
+            <div class="about-section">
+                <h2>Our Values</h2>
+                <div class="values-list">
+                    <div class="value-box">
+                        <h3>Simplicity</h3>
+                        <p>Clear, uncluttered designs that toddlers can enjoy without overstimulation.</p>
+                    </div>
+                    <div class="value-box">
+                        <h3>Quality</h3>
+                        <p>Every page is carefully crafted with developmental benefits in mind.</p>
+                    </div>
+                    <div class="value-box">
+                        <h3>Accessibility</h3>
+                        <p>Affordable printables that every family can access and enjoy.</p>
+                    </div>
+                    <div class="value-box">
+                        <h3>Trust</h3>
+                        <p>Parents trust us with their children's creative time. We take that seriously.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="email-signup">
+        <div class="signup-container">
+            <h2>Ready to Give Your Toddler a Calm Moment?</h2>
+            <p>Start with our free sample pack—5 printable pages perfect for first exploration.</p>
+            <form class="signup-form" id="signupForm">
+                <input type="email" placeholder="Enter your email" required class="email-input">
+                <button type="submit" class="signup-button">Send Me Free Samples</button>
+            </form>
+            <p class="form-note">We respect your privacy. Unsubscribe anytime.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Little Pause Pages</h4>
+                <p>Calm moments, creative minds. Toddler-friendly coloring books and printables.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="books.html">Our Books</a></li>
+                    <li><a href="samples.html">Free Samples</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Little Pause Pages. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+<style>
+.about-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.about-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.about-section {
+    background-color: #FFFFFF;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(27, 43, 74, 0.06);
+}
+
+.about-section h2 {
+    color: #1B2B4A;
+    margin-bottom: 1rem;
+    border-bottom: 3px solid #E8876A;
+    padding-bottom: 0.5rem;
+}
+
+.about-section p {
+    color: #3D4F6B;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.values-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.value-box {
+    background-color: #F5F1E8;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid #4A9B8E;
+}
+
+.value-box h3 {
+    color: #1B2B4A;
+    margin-bottom: 0.5rem;
+}
+
+.value-box p {
+    color: #3D4F6B;
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        padding: 2rem 1rem;
+    }
+
+    .about-section {
+        padding: 1.5rem;
+    }
+
+    .values-list {
+        grid-template-columns: 1fr;
+    }
+}
+</style>

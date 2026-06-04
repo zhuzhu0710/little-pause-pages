@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Little Pause Pages</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header / Navigation -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-section">
+                <img src="assets/logo.png" alt="Little Pause Pages Logo" class="logo">
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="books.html" class="nav-link">Books</a>
+                <a href="samples.html" class="nav-link">Free Samples</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+                <a href="contact.html" class="nav-link active">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Get in Touch</h1>
+            <p class="hero-subtitle">We'd love to hear from you</p>
+            <p class="hero-description">Have questions, feedback, or just want to say hello? Reach out to us anytime.</p>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="contact-content">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Contact Information</h2>
+                
+                <div class="info-item">
+                    <h3>📧 Email</h3>
+                    <p><a href="mailto:hello@littlepausepages.com">hello@littlepausepages.com</a></p>
+                    <p class="info-note">We typically respond within 24 hours.</p>
+                </div>
+
+                <div class="info-item">
+                    <h3>💬 Questions?</h3>
+                    <p>Check out our <a href="faq.html">Frequently Asked Questions</a> page first—your answer might be there!</p>
+                </div>
+
+                <div class="info-item">
+                    <h3>🤝 Partnerships & Licensing</h3>
+                    <p>Interested in using Little Pause Pages in your classroom or business? <a href="mailto:hello@littlepausepages.com">Email us</a> to discuss options.</p>
+                </div>
+
+                <div class="info-item">
+                    <h3>💡 Feedback & Suggestions</h3>
+                    <p>We love hearing from parents! Share your ideas for new collections or themes at <a href="mailto:hello@littlepausepages.com">hello@littlepausepages.com</a>.</p>
+                </div>
+            </div>
+
+            <div class="contact-form-section">
+                <h2>Send Us a Message</h2>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="6" required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-button">Send Message</button>
+                </form>
+                <p class="form-note">We'll get back to you as soon as possible!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social & Newsletter -->
+    <section class="newsletter-section">
+        <div class="newsletter-container">
+            <h2>Stay Connected</h2>
+            <p>Get updates on new collections, special offers, and parenting tips.</p>
+            <form class="signup-form" id="signupForm">
+                <input type="email" placeholder="Enter your email" required class="email-input">
+                <button type="submit" class="signup-button">Subscribe</button>
+            </form>
+            <p class="form-note">We respect your privacy. Unsubscribe anytime.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Little Pause Pages</h4>
+                <p>Calm moments, creative minds. Toddler-friendly coloring books and printables.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="books.html">Our Books</a></li>
+                    <li><a href="samples.html">Free Samples</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Little Pause Pages. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Contact Form Handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Show success message
+            const button = this.querySelector('.submit-button');
+            const originalText = button.textContent;
+            button.textContent = '✓ Message sent!';
+            button.style.backgroundColor = '#4A9B8E';
+            
+            // Reset form after 2 seconds
+            setTimeout(() => {
+                this.reset();
+                button.textContent = originalText;
+                button.style.backgroundColor = '';
+            }, 2000);
+            
+            console.log('Message submitted:', { name, email, subject, message });
+        });
+    </script>
+</body>
+</html>
+
+<style>
+.contact-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.contact-info {
+    background-color: #FFFFFF;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(27, 43, 74, 0.06);
+    height: fit-content;
+}
+
+.contact-info h2 {
+    color: #1B2B4A;
+    margin-bottom: 2rem;
+    border-bottom: 3px solid #E8876A;
+    padding-bottom: 0.5rem;
+}
+
+.info-item {
+    margin-bottom: 2rem;
+}
+
+.info-item:last-child {
+    margin-bottom: 0;
+}
+
+.info-item h3 {
+    color: #1B2B4A;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.info-item p {
+    color: #3D4F6B;
+    margin-bottom: 0.5rem;
+}
+
+.info-item a {
+    color: #4A9B8E;
+    font-weight: 600;
+}
+
+.info-item a:hover {
+    color: #E8876A;
+}
+
+.info-note {
+    font-size: 0.9rem;
+    color: #8B9BA8;
+    margin-top: 0.5rem;
+}
+
+.contact-form-section {
+    background-color: #FFFFFF;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(27, 43, 74, 0.06);
+}
+
+.contact-form-section h2 {
+    color: #1B2B4A;
+    margin-bottom: 1.5rem;
+    border-bottom: 3px solid #4A9B8E;
+    padding-bottom: 0.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    color: #1B2B4A;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #E0E0E0;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+    color: #1B2B4A;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #4A9B8E;
+    box-shadow: 0 0 0 3px rgba(74, 155, 142, 0.1);
+}
+
+.submit-button {
+    width: 100%;
+    padding: 1rem;
+    background-color: #E8876A;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #D4735A;
+}
+
+.form-note {
+    text-align: center;
+    color: #8B9BA8;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+.newsletter-section {
+    background: linear-gradient(135deg, #4A9B8E 0%, #3D8B7E 100%);
+    padding: 4rem 2rem;
+    text-align: center;
+    color: #FFFFFF;
+    margin-top: 3rem;
+}
+
+.newsletter-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.newsletter-section h2 {
+    color: #FFFFFF;
+    margin-bottom: 1rem;
+}
+
+.newsletter-section p {
+    color: #E8F5F2;
+    margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .contact-content {
+        padding: 2rem 1rem;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .contact-info,
+    .contact-form-section {
+        padding: 1.5rem;
+    }
+
+    .newsletter-section {
+        padding: 2rem 1rem;
+    }
+}
+</style>

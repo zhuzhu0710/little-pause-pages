@@ -1,0 +1,599 @@
+/* ============================================
+   Little Pause Pages - Design System
+   ============================================
+   Colors:
+   - Primary Cream: #F5F1E8
+   - Deep Navy: #1B2B4A
+   - Teal Accent: #4A9B8E
+   - Coral Accent: #E8876A
+   - Soft Gold: #D4A574
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #F5F1E8;
+    color: #1B2B4A;
+    line-height: 1.6;
+}
+
+/* ============================================
+   Typography
+   ============================================ */
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    color: #1B2B4A;
+    margin-bottom: 0.5rem;
+}
+
+h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+}
+
+h3 {
+    font-size: 1.4rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: #3D4F6B;
+}
+
+a {
+    color: #4A9B8E;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #E8876A;
+}
+
+/* ============================================
+   Header & Navigation
+   ============================================ */
+
+.header {
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 8px rgba(27, 43, 74, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+}
+
+.nav {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-link {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #1B2B4A;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #4A9B8E;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: #4A9B8E;
+    border-radius: 2px;
+}
+
+/* ============================================
+   Hero Section
+   ============================================ */
+
+.hero {
+    background: linear-gradient(135deg, #F5F1E8 0%, #FBF8F3 100%);
+    padding: 6rem 2rem;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    color: #1B2B4A;
+    margin-bottom: 1rem;
+    font-size: 3.5rem;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: #4A9B8E;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    color: #3D4F6B;
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #E8876A;
+    color: #FFFFFF;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(232, 135, 106, 0.3);
+}
+
+.cta-button:hover {
+    background-color: #D4735A;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(232, 135, 106, 0.4);
+}
+
+/* ============================================
+   Use Cases Section
+   ============================================ */
+
+.use-cases {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+}
+
+.section-title {
+    text-align: center;
+    color: #1B2B4A;
+    margin-bottom: 3rem;
+    font-size: 2.2rem;
+}
+
+.use-cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.use-case-card {
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(27, 43, 74, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.use-case-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 24px rgba(27, 43, 74, 0.12);
+}
+
+.use-case-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.use-case-card h3 {
+    padding: 1.5rem 1.5rem 0.5rem;
+    color: #1B2B4A;
+}
+
+.use-case-card p {
+    padding: 0 1.5rem 1.5rem;
+    color: #3D4F6B;
+    font-size: 0.95rem;
+}
+
+/* Placeholder cards for missing images */
+.use-case-card.placeholder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.placeholder-image {
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(135deg, #D4A574 0%, #4A9B8E 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* ============================================
+   Value Proposition Section
+   ============================================ */
+
+.value-prop {
+    background-color: #FFFFFF;
+    padding: 5rem 2rem;
+}
+
+.value-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.value-item {
+    text-align: center;
+    padding: 2rem;
+    border-radius: 12px;
+    background-color: #F5F1E8;
+    transition: transform 0.3s ease;
+}
+
+.value-item:hover {
+    transform: translateY(-4px);
+}
+
+.value-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.value-item h3 {
+    color: #1B2B4A;
+    margin-bottom: 0.5rem;
+}
+
+.value-item p {
+    color: #3D4F6B;
+    font-size: 0.95rem;
+}
+
+/* ============================================
+   Email Signup Section
+   ============================================ */
+
+.email-signup {
+    background: linear-gradient(135deg, #4A9B8E 0%, #3D8B7E 100%);
+    padding: 4rem 2rem;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.signup-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.email-signup h2 {
+    color: #FFFFFF;
+    margin-bottom: 1rem;
+}
+
+.email-signup p {
+    color: #E8F5F2;
+    margin-bottom: 1.5rem;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.email-input {
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #FFFFFF;
+    color: #1B2B4A;
+}
+
+.email-input::placeholder {
+    color: #A0A0A0;
+}
+
+.email-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(232, 135, 106, 0.3);
+}
+
+.signup-button {
+    padding: 1rem;
+    background-color: #E8876A;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.signup-button:hover {
+    background-color: #D4735A;
+}
+
+.form-note {
+    font-size: 0.85rem;
+    color: #D0E8E5;
+}
+
+/* ============================================
+   Quick FAQ Section
+   ============================================ */
+
+.quick-faq {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.faq-item {
+    background-color: #FFFFFF;
+    padding: 2rem;
+    border-radius: 12px;
+    border-left: 4px solid #E8876A;
+    box-shadow: 0 2px 8px rgba(27, 43, 74, 0.06);
+}
+
+.faq-item h3 {
+    color: #1B2B4A;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.faq-item p {
+    color: #3D4F6B;
+    font-size: 0.95rem;
+}
+
+.faq-link {
+    text-align: center;
+}
+
+.link-button {
+    display: inline-block;
+    color: #4A9B8E;
+    font-weight: 600;
+    font-size: 1.05rem;
+    transition: color 0.3s ease;
+}
+
+.link-button:hover {
+    color: #E8876A;
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+
+.footer {
+    background-color: #1B2B4A;
+    color: #E8F5F2;
+    padding: 3rem 2rem 1rem;
+    margin-top: 3rem;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h4 {
+    color: #FFFFFF;
+    margin-bottom: 1rem;
+}
+
+.footer-section p {
+    color: #D0E8E5;
+    font-size: 0.95rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+    color: #D0E8E5;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: #E8876A;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(232, 135, 106, 0.2);
+    color: #A0B8B3;
+    font-size: 0.9rem;
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav {
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    .use-cases-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .value-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .signup-form {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    .header-container {
+        padding: 1rem;
+    }
+
+    .logo {
+        height: 50px;
+    }
+
+    .nav {
+        gap: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .hero {
+        padding: 3rem 1rem;
+    }
+
+    .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .hero-description {
+        font-size: 0.95rem;
+    }
+
+    .cta-button {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.95rem;
+    }
+
+    .use-cases,
+    .quick-faq {
+        padding: 3rem 1rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .use-case-card h3,
+    .use-case-card p {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .value-item {
+        padding: 1.5rem;
+    }
+
+    .email-signup {
+        padding: 2rem 1rem;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}

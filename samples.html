@@ -74,9 +74,12 @@
         <div class="signup-container">
             <h2>Request the Free PDF</h2>
             <p>Enter your email below and we will send the printable PDF after we receive your request.</p>
-            <form class="signup-form" id="signupForm" name="free-sample-request" method="POST" data-netlify="true" action="free-samples-thanks.html">
+            <form class="signup-form" id="signupForm" name="free-sample-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/free-samples-thanks.html">
                 <input type="hidden" name="form-name" value="free-sample-request">
-                <input type="email" name="email" placeholder="Enter your email" required class="email-input">
+                <p class="hidden-field">
+                    <label>Don’t fill this out if you’re human: <input name="bot-field"></label>
+                </p>
+                <input type="email" name="email" placeholder="Enter your email" required autocomplete="email" inputmode="email" class="email-input">
                 <button type="submit" class="signup-button">Send My Free PDF</button>
             </form>
             <p class="form-note">No direct download on the site. We email the PDF after your request is received.</p>
@@ -290,6 +293,10 @@
             padding: 1rem 1.25rem;
             font-size: 1rem;
             color: #1B2B4A;
+        }
+
+        .hidden-field {
+            display: none;
         }
 
         .signup-button {

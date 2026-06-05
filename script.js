@@ -47,3 +47,36 @@ document.querySelectorAll('.use-case-card, .value-item, .faq-item, .sample-item,
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(el);
 });
+
+const freeSampleForm = document.querySelector('form[name="free-sample-request"]');
+
+if (freeSampleForm) {
+    freeSampleForm.addEventListener('submit', async function(event) {
+        event.preventDefault();
+
+        const formData = new FormData(freeSampleForm);
+        const encoded = new URLSearchParams(formData).toString();
+        const submitButton = freeSampleForm.querySelector('.signup-button');
+
+        if (submitButton) {
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sending...';
+        }
+
+        try {
+            await fetch('/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: encoded
+            });
+
+            window.location.href = '/free-samples-thanks.html';
+        } catch (error) {
+            if (submitButton) {
+                submitButton.disabled = false;
+                submitButton.textContent = 'Send My Free PDF';
+            }
+            alert('Sorry, we could not send your request right now. Please try again or email us directly.');
+        }
+    });
+}

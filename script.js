@@ -47,3 +47,11 @@ document.querySelectorAll('.use-case-card, .value-item, .faq-item, .sample-item,
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(el);
 });
+
+const requestConfirmation = document.getElementById('requestConfirmation');
+const requestState = new URLSearchParams(window.location.search).get('free-pdf');
+
+if (requestConfirmation && requestState === 'sent') {
+    requestConfirmation.hidden = false;
+    requestConfirmation.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}

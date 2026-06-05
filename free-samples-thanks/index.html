@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Little Pause Pages</title>
+    <link rel="icon" href="../favicon.ico?v=3">
+    <link rel="apple-touch-icon" href="../assets/favicon.png">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-section">
+                <img src="../assets/logo.png" alt="Little Pause Pages Logo" class="logo">
+            </div>
+            <nav class="nav">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../about.html" class="nav-link">About</a>
+                <a href="../books.html" class="nav-link">Books</a>
+                <a href="../samples.html" class="nav-link active">Free Samples</a>
+                <a href="../faq.html" class="nav-link">FAQ</a>
+                <a href="../contact.html" class="nav-link">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Thank You</h1>
+            <p class="hero-subtitle">We received your request</p>
+            <p class="hero-description">
+                Thanks for signing up. We will email the Little Pause Pages free sample PDF to you shortly.
+            </p>
+        </div>
+    </section>
+
+    <section class="how-to-use">
+        <div class="how-container">
+            <h2>What Happens Next</h2>
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>We Review</h3>
+                    <p>We check your request and prepare the free sample PDF.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>We Email</h3>
+                    <p>The PDF is sent to the email address you submitted.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>You Print</h3>
+                    <p>Open the PDF, print the pages, and start coloring.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Keep in Touch</h3>
+                    <p>We will share new pages and updates from Little Pause Pages.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="quick-faq">
+        <h2 class="section-title">Need to Go Back?</h2>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <h3>Back to samples</h3>
+                <p><a href="../samples.html">Return to the preview page</a> if you want to look at the free pack again.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Contact us</h3>
+                <p><a href="../contact.html">Email us directly</a> if you have any questions about the sample pack.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Little Pause Pages</h4>
+                <p>Calm moments, creative minds. Toddler-friendly coloring books and printables.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="../about.html">About Us</a></li>
+                    <li><a href="../books.html">Our Books</a></li>
+                    <li><a href="../samples.html">Free Samples</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="../privacy.html">Privacy Policy</a></li>
+                    <li><a href="../contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Little Pause Pages. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+
+    <style>
+        .how-to-use,
+        .quick-faq {
+            padding: 5rem 0;
+        }
+
+        .how-container,
+        .quick-faq {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        .how-container h2,
+        .quick-faq h2 {
+            text-align: center;
+            color: #1B2B4A;
+            margin-bottom: 1rem;
+        }
+
+        .steps-grid,
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .step,
+        .faq-item {
+            background-color: #FFFFFF;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(27, 43, 74, 0.06);
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background-color: #E8876A;
+            color: #FFFFFF;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .step h3,
+        .faq-item h3 {
+            color: #1B2B4A;
+            margin-bottom: 0.5rem;
+        }
+
+        .step p,
+        .faq-item p {
+            color: #3D4F6B;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .how-to-use,
+            .quick-faq {
+                padding: 3rem 1rem;
+            }
+
+            .how-container,
+            .quick-faq {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            .steps-grid,
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</body>
+</html>

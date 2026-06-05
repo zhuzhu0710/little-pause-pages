@@ -106,5 +106,86 @@
     </footer>
 
     <script src="script.js"></script>
+
+    <style>
+        .how-to-use,
+        .quick-faq {
+            padding: 5rem 0;
+        }
+
+        .how-container,
+        .quick-faq {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        .how-container h2,
+        .quick-faq h2 {
+            text-align: center;
+            color: #1B2B4A;
+            margin-bottom: 1rem;
+        }
+
+        .steps-grid,
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .step,
+        .faq-item {
+            background-color: #FFFFFF;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(27, 43, 74, 0.06);
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background-color: #E8876A;
+            color: #FFFFFF;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .step h3,
+        .faq-item h3 {
+            color: #1B2B4A;
+            margin-bottom: 0.5rem;
+        }
+
+        .step p,
+        .faq-item p {
+            color: #3D4F6B;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .how-to-use,
+            .quick-faq {
+                padding: 3rem 1rem;
+            }
+
+            .how-container,
+            .quick-faq {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            .steps-grid,
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </body>
 </html>

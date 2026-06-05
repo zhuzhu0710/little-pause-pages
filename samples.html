@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free Sample Pages - Little Pause Pages</title>
+    <title>Free Sample Preview - Little Pause Pages</title>
     <link rel="icon" href="favicon.ico?v=3">
     <link rel="apple-touch-icon" href="assets/favicon.png">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Header / Navigation -->
     <header class="header">
         <div class="header-container">
             <div class="logo-section">
@@ -26,144 +25,142 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1 class="hero-title">Free Sample Pages</h1>
+            <h1 class="hero-title">Free Sample Preview</h1>
             <p class="hero-subtitle">Try Little Pause Pages for free</p>
-            <p class="hero-description">Download 5 beautiful printable pages featuring APPLE, BALL, CAR, DOG, and STAR. Perfect for your first Little Pause Pages experience.</p>
+            <p class="hero-description">
+                Preview 5 printable pages featuring LUNCH BOX, SCOOTER, ROCKET, TRAIN, and WATER BOTTLE.
+                Enter your email and we will send the PDF to your inbox after we receive your request.
+            </p>
         </div>
     </section>
 
-    <!-- Sample Preview Section -->
     <section class="sample-preview">
         <div class="preview-container">
-            <h2>What's Included in Your Free Pack</h2>
+            <h2>What is Included in the Free Pack</h2>
+            <p class="preview-note">These cards are previews only. The printable PDF is sent by email after sign-up.</p>
             <div class="sample-grid">
-                <div class="sample-item">
-                    <div class="sample-image">🍎</div>
-                    <h3>APPLE</h3>
-                    <p>A simple apple for your toddler to color and explore.</p>
-                </div>
-                <div class="sample-item">
-                    <div class="sample-image">⚽</div>
-                    <h3>BALL</h3>
-                    <p>A cheerful ball with patterns perfect for color practice.</p>
-                </div>
-                <div class="sample-item">
-                    <div class="sample-image">🚗</div>
-                    <h3>CAR</h3>
-                    <p>A friendly car with fun details to discover and color.</p>
-                </div>
-                <div class="sample-item">
-                    <div class="sample-image">🐕</div>
-                    <h3>DOG</h3>
-                    <p>A cute dog face that toddlers love to bring to life with colors.</p>
-                </div>
-                <div class="sample-item">
-                    <div class="sample-image">⭐</div>
-                    <h3>STAR</h3>
-                    <p>A bright star with simple shapes perfect for fine motor practice.</p>
-                </div>
+                <article class="sample-item">
+                    <img src="assets/free-lunch-box.png" alt="Lunch Box preview" class="sample-image">
+                    <h3>LUNCH BOX</h3>
+                    <p>A simple lunch box with clear sections to color.</p>
+                </article>
+                <article class="sample-item">
+                    <img src="assets/free-scooter.png" alt="Scooter preview" class="sample-image">
+                    <h3>SCOOTER</h3>
+                    <p>A friendly scooter with wheels, deck, and handlebar.</p>
+                </article>
+                <article class="sample-item">
+                    <img src="assets/free-rocket.png" alt="Rocket preview" class="sample-image">
+                    <h3>ROCKET</h3>
+                    <p>A simple rocket with body, fins, window, and flame.</p>
+                </article>
+                <article class="sample-item">
+                    <img src="assets/free-train.png" alt="Train preview" class="sample-image">
+                    <h3>TRAIN</h3>
+                    <p>A cheerful train engine with clear parts to color.</p>
+                </article>
+                <article class="sample-item">
+                    <img src="assets/free-water-bottle.png" alt="Water Bottle preview" class="sample-image">
+                    <h3>WATER BOTTLE</h3>
+                    <p>A simple bottle with cap, body, and strap sections.</p>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- Email Signup Section -->
     <section class="email-signup">
         <div class="signup-container">
-            <h2>Get Your Free Sample Pack Now</h2>
-            <p>Enter your email below and we'll send you the download link immediately.</p>
-            <form class="signup-form" id="signupForm">
-                <input type="email" placeholder="Enter your email" required class="email-input">
-                <button type="submit" class="signup-button">Send Me Free Samples</button>
+            <h2>Request the Free PDF</h2>
+            <p>Enter your email below and we will send the printable PDF after we receive your request.</p>
+            <form class="signup-form" id="signupForm" name="free-sample-request" method="POST" data-netlify="true" action="free-samples-thanks.html">
+                <input type="hidden" name="form-name" value="free-sample-request">
+                <input type="email" name="email" placeholder="Enter your email" required class="email-input">
+                <button type="submit" class="signup-button">Send My Free PDF</button>
             </form>
-            <p class="form-note">We respect your privacy. Unsubscribe anytime. No spam, just quality content.</p>
+            <p class="form-note">No direct download on the site. We email the PDF after your request is received.</p>
         </div>
     </section>
 
-    <!-- Why Try Free Samples -->
     <section class="why-samples">
         <div class="why-samples-container">
-            <h2>Why Try Our Free Samples?</h2>
+            <h2>Why Try the Preview?</h2>
             <div class="reasons-grid">
                 <div class="reason-item">
                     <div class="reason-number">1</div>
-                    <h3>Experience the Quality</h3>
-                    <p>See for yourself why parents love Little Pause Pages. Our free samples showcase the same care and attention to detail as our full collections.</p>
+                    <h3>See the Style</h3>
+                    <p>Preview the exact look and feel parents can expect from Little Pause Pages.</p>
                 </div>
                 <div class="reason-item">
                     <div class="reason-number">2</div>
-                    <h3>Perfect for Testing</h3>
-                    <p>Try before you buy. See if your toddler enjoys our style and approach to creative play.</p>
+                    <h3>Check the Fit</h3>
+                    <p>Make sure the pages feel right for your toddler before you request the full PDF.</p>
                 </div>
                 <div class="reason-item">
                     <div class="reason-number">3</div>
-                    <h3>Instant Access</h3>
-                    <p>Download immediately. Print right away. No waiting, no shipping delays.</p>
+                    <h3>Email Delivery</h3>
+                    <p>We send the PDF by email after the form is submitted. No download link on the page.</p>
                 </div>
                 <div class="reason-item">
                     <div class="reason-number">4</div>
-                    <h3>Share with Friends</h3>
-                    <p>Love what you find? Share the link with other parents. Spread the calm.</p>
+                    <h3>Easy to Print</h3>
+                    <p>Once you receive the PDF, you can print it right away at home or at a copy shop.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- How to Use Section -->
     <section class="how-to-use">
         <div class="how-container">
-            <h2>How to Use Your Samples</h2>
+            <h2>How the Request Works</h2>
             <div class="steps-grid">
                 <div class="step">
                     <div class="step-number">1</div>
-                    <h3>Download</h3>
-                    <p>Check your email for the download link and save the PDF to your device.</p>
+                    <h3>Preview</h3>
+                    <p>Look through the five sample cards and see what is included.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
-                    <h3>Print</h3>
-                    <p>Print the pages on standard white paper. Color or black-and-white printing both work great.</p>
+                    <h3>Request</h3>
+                    <p>Enter your email and press the orange button to send your request.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">3</div>
-                    <h3>Enjoy</h3>
-                    <p>Set out crayons or markers and let your toddler explore. No pressure, just creativity.</p>
+                    <h3>Receive</h3>
+                    <p>We get the request and email you the PDF directly afterward.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">4</div>
-                    <h3>Share</h3>
-                    <p>Love it? Tell us! We'd love to hear how your little one enjoyed the pages.</p>
+                    <h3>Print</h3>
+                    <p>Open the PDF and print the pages that you want to use.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section -->
     <section class="quick-faq">
-        <h2 class="section-title">Questions About Free Samples?</h2>
+        <h2 class="section-title">Questions About the Free Preview?</h2>
         <div class="faq-grid">
             <div class="faq-item">
-                <h3>Is this really free?</h3>
-                <p>Yes! Our sample pack is completely free. We just ask for your email to send you the download link.</p>
+                <h3>Is the preview free?</h3>
+                <p>Yes. The preview is free and the PDF is sent by email after you sign up.</p>
             </div>
             <div class="faq-item">
-                <h3>What file format will I receive?</h3>
-                <p>You'll receive a PDF file that you can print immediately on any printer.</p>
+                <h3>Can I download it here?</h3>
+                <p>No. We keep the PDF off the website and send it by email instead.</p>
             </div>
             <div class="faq-item">
-                <h3>Can I share the samples?</h3>
-                <p>The samples are for personal use. For bulk sharing, please contact us about licensing options.</p>
+                <h3>What will I receive?</h3>
+                <p>You will receive the printable PDF sample pack in your inbox.</p>
             </div>
             <div class="faq-item">
                 <h3>Will you spam my email?</h3>
-                <p>Never. We only send helpful updates about new releases and special offers. Unsubscribe anytime.</p>
+                <p>No. We only use your email for the sample request and future Little Pause Pages updates.</p>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-section">
@@ -193,170 +190,196 @@
     </footer>
 
     <script src="script.js"></script>
+
+    <style>
+        .preview-container,
+        .signup-container,
+        .why-samples-container,
+        .how-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .sample-preview,
+        .why-samples,
+        .how-to-use,
+        .email-signup {
+            padding: 5rem 0;
+        }
+
+        .sample-preview {
+            background-color: #F5F1E8;
+        }
+
+        .preview-container h2,
+        .signup-container h2,
+        .why-samples h2,
+        .how-container h2 {
+            text-align: center;
+            color: #1B2B4A;
+            margin-bottom: 1rem;
+        }
+
+        .preview-note {
+            text-align: center;
+            color: #4A9B8E;
+            margin-bottom: 2.5rem;
+            font-weight: 600;
+        }
+
+        .sample-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .sample-item {
+            background-color: #FFFFFF;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(27, 43, 74, 0.06);
+        }
+
+        .sample-image {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            background-color: #FBF8F3;
+        }
+
+        .sample-item h3 {
+            color: #1B2B4A;
+            margin-bottom: 0.5rem;
+        }
+
+        .sample-item p,
+        .reason-item p,
+        .step p,
+        .faq-item p,
+        .signup-container p {
+            color: #3D4F6B;
+            line-height: 1.6;
+        }
+
+        .email-signup {
+            background-color: #4A9B8E;
+            color: #FFFFFF;
+        }
+
+        .signup-container h2,
+        .signup-container p,
+        .signup-container .form-note {
+            color: #FFFFFF;
+        }
+
+        .signup-form {
+            display: grid;
+            gap: 1rem;
+            max-width: 620px;
+            margin: 2rem auto 0;
+        }
+
+        .email-input {
+            width: 100%;
+            border: none;
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+            font-size: 1rem;
+            color: #1B2B4A;
+        }
+
+        .signup-button {
+            background-color: #E8876A;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 10px;
+            padding: 1rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .form-note {
+            text-align: center;
+            margin-top: 1rem;
+            opacity: 0.92;
+        }
+
+        .reasons-grid,
+        .steps-grid,
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .reason-item,
+        .step,
+        .faq-item {
+            background-color: #FFFFFF;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(27, 43, 74, 0.06);
+        }
+
+        .reason-number,
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background-color: #4A9B8E;
+            color: #FFFFFF;
+        }
+
+        .step-number {
+            background-color: #E8876A;
+        }
+
+        .reason-item h3,
+        .step h3,
+        .faq-item h3 {
+            color: #1B2B4A;
+            margin-bottom: 0.5rem;
+        }
+
+        .quick-faq {
+            padding: 5rem 2rem;
+            background-color: #F5F1E8;
+        }
+
+        @media (max-width: 768px) {
+            .sample-preview,
+            .why-samples,
+            .how-to-use,
+            .email-signup,
+            .quick-faq {
+                padding: 3rem 1rem;
+            }
+
+            .sample-grid,
+            .reasons-grid,
+            .steps-grid,
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .preview-container,
+            .signup-container,
+            .why-samples-container,
+            .how-container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
 </body>
 </html>
-
-<style>
-.sample-preview {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 5rem 2rem;
-}
-
-.preview-container h2 {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.sample-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-}
-
-.sample-item {
-    background-color: #FFFFFF;
-    padding: 2rem;
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(27, 43, 74, 0.06);
-    transition: transform 0.3s ease;
-}
-
-.sample-item:hover {
-    transform: translateY(-4px);
-}
-
-.sample-image {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.sample-item h3 {
-    color: #1B2B4A;
-    margin-bottom: 0.5rem;
-}
-
-.sample-item p {
-    color: #3D4F6B;
-    font-size: 0.9rem;
-}
-
-.why-samples {
-    background-color: #F5F1E8;
-    padding: 5rem 2rem;
-}
-
-.why-samples-container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.why-samples h2 {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.reasons-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-}
-
-.reason-item {
-    background-color: #FFFFFF;
-    padding: 2rem;
-    border-radius: 12px;
-    border-top: 4px solid #E8876A;
-    box-shadow: 0 2px 8px rgba(27, 43, 74, 0.06);
-}
-
-.reason-number {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    background-color: #4A9B8E;
-    color: #FFFFFF;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 40px;
-    font-weight: 600;
-    margin-bottom: 1rem;
-}
-
-.reason-item h3 {
-    color: #1B2B4A;
-    margin-bottom: 0.5rem;
-}
-
-.reason-item p {
-    color: #3D4F6B;
-    font-size: 0.95rem;
-}
-
-.how-to-use {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 5rem 2rem;
-}
-
-.how-container h2 {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.steps-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-}
-
-.step {
-    background-color: #FFFFFF;
-    padding: 2rem;
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(27, 43, 74, 0.06);
-}
-
-.step-number {
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-    background-color: #E8876A;
-    color: #FFFFFF;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 50px;
-    font-weight: 600;
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-}
-
-.step h3 {
-    color: #1B2B4A;
-    margin-bottom: 0.5rem;
-}
-
-.step p {
-    color: #3D4F6B;
-    font-size: 0.95rem;
-}
-
-@media (max-width: 768px) {
-    .sample-preview,
-    .how-to-use {
-        padding: 3rem 1rem;
-    }
-
-    .why-samples {
-        padding: 3rem 1rem;
-    }
-
-    .sample-grid,
-    .reasons-grid,
-    .steps-grid {
-        grid-template-columns: 1fr;
-    }
-}
-</style>

@@ -53,7 +53,6 @@ const requestState = new URLSearchParams(window.location.search).get('free-pdf')
 
 if (requestConfirmation && requestState === 'sent') {
     requestConfirmation.hidden = false;
-    requestConfirmation.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 const freeSampleForm = document.querySelector('form[name="free-sample-request"]');
@@ -83,7 +82,6 @@ if (freeSampleForm) {
 
             if (confirmation) {
                 confirmation.hidden = false;
-                confirmation.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
 
             if (submitButton) {

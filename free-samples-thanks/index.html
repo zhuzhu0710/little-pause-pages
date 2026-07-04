@@ -27,11 +27,24 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h1 class="hero-title">Thank You</h1>
-            <p class="hero-subtitle">We received your request</p>
+            <div class="success-badge">Success</div>
+            <h1 class="hero-title">Request Received</h1>
+            <p class="hero-subtitle">Your free sample request is in</p>
             <p class="hero-description">
                 Thanks for signing up. We review requests every hour and then email the Little Pause Pages free sample PDF to you.
             </p>
+        </div>
+    </section>
+
+    <section class="success-callout">
+        <div class="success-callout-inner">
+            <h2>We have your request</h2>
+            <p>Your name and email were submitted successfully. The PDF will be emailed after the next hourly review.</p>
+            <div class="success-pill-row">
+                <span class="success-pill">Request submitted</span>
+                <span class="success-pill">Hourly review</span>
+                <span class="success-pill">PDF by email</span>
+            </div>
         </div>
     </section>
 
@@ -108,6 +121,63 @@
     <script src="../script.js"></script>
 
     <style>
+        .success-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            padding: 0.55rem 1rem;
+            border-radius: 999px;
+            background-color: #4A9B8E;
+            color: #FFFFFF;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+        }
+
+        .success-callout {
+            background-color: #FFFFFF;
+            border-top: 1px solid rgba(74, 155, 142, 0.18);
+            border-bottom: 1px solid rgba(74, 155, 142, 0.18);
+            padding: 3rem 0;
+        }
+
+        .success-callout-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .success-callout h2 {
+            color: #1B2B4A;
+            margin-bottom: 0.75rem;
+        }
+
+        .success-callout p {
+            color: #3D4F6B;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .success-pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+        }
+
+        .success-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.6rem 1rem;
+            border-radius: 999px;
+            background-color: #F5F1E8;
+            color: #1B2B4A;
+            font-weight: 700;
+        }
+
         .how-to-use,
         .quick-faq {
             padding: 5rem 0;
@@ -170,6 +240,14 @@
         }
 
         @media (max-width: 768px) {
+            .success-callout {
+                padding: 2.5rem 0;
+            }
+
+            .success-callout-inner {
+                padding: 0 1rem;
+            }
+
             .how-to-use,
             .quick-faq {
                 padding: 3rem 1rem;

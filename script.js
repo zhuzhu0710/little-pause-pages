@@ -48,13 +48,6 @@ document.querySelectorAll('.use-case-card, .value-item, .faq-item, .sample-item,
     observer.observe(el);
 });
 
-const requestConfirmation = document.getElementById('requestConfirmation');
-const requestState = new URLSearchParams(window.location.search).get('free-pdf');
-
-if (requestConfirmation && requestState === 'sent') {
-    requestConfirmation.hidden = false;
-}
-
 const contactConfirmation = document.getElementById('contactConfirmation');
 const contactState = new URLSearchParams(window.location.search).get('message');
 

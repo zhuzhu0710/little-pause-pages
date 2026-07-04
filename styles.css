@@ -70,7 +70,7 @@ a:hover {
    ============================================ */
 
 .header {
-    background-color: #FFFFFF;
+    background-color: #FCF6E4;
     box-shadow: 0 2px 8px rgba(27, 43, 74, 0.08);
     position: sticky;
     top: 0;
@@ -89,10 +89,11 @@ a:hover {
 .logo-section {
     display: flex;
     align-items: center;
+    background-color: #FCF6E4;
 }
 
 .logo {
-    height: 60px;
+    height: 70px;
     width: auto;
     object-fit: contain;
 }
@@ -180,6 +181,33 @@ a:hover {
     box-shadow: 0 6px 20px rgba(232, 135, 106, 0.4);
 }
 
+.button-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.amazon-button {
+    display: inline-block;
+    background-color: #1B2B4A;
+    color: #FFFFFF;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(27, 43, 74, 0.18);
+}
+
+.amazon-button:hover {
+    background-color: #324C78;
+    color: #FFFFFF;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(27, 43, 74, 0.22);
+}
+
 /* ============================================
    Use Cases Section
    ============================================ */
@@ -233,6 +261,83 @@ a:hover {
     font-size: 0.95rem;
 }
 
+/* ============================================
+   Demo Video Section
+   ============================================ */
+
+.demo-video-section {
+    background-color: #FFFFFF;
+    padding: 0 2rem 5rem;
+}
+
+.demo-video-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+    gap: 2.5rem;
+    align-items: center;
+    background: linear-gradient(135deg, #FCF6E4 0%, #F9F3E8 100%);
+    border: 1px solid rgba(74, 155, 142, 0.16);
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 0 8px 24px rgba(27, 43, 74, 0.08);
+}
+
+.demo-video-copy {
+    padding: 0.5rem 0.5rem 0.5rem 0.25rem;
+}
+
+.eyebrow {
+    display: inline-block;
+    margin-bottom: 0.75rem;
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
+    background-color: rgba(74, 155, 142, 0.16);
+    color: #3D8B7E;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0;
+}
+
+.section-title-left {
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+.demo-video-copy p {
+    font-size: 1rem;
+    line-height: 1.75;
+    margin-bottom: 1rem;
+}
+
+.demo-video-list {
+    margin: 1rem 0 1.5rem;
+    padding-left: 1.25rem;
+    color: #3D4F6B;
+}
+
+.demo-video-list li {
+    margin-bottom: 0.65rem;
+}
+
+.demo-video-frame {
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    padding: 0.75rem;
+    box-shadow: 0 6px 18px rgba(27, 43, 74, 0.10);
+}
+
+.homepage-demo-video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 0;
+    border-radius: 16px;
+    background-color: #1B2B4A;
+    object-fit: cover;
+}
+
 /* Placeholder cards for missing images */
 .use-case-card.placeholder {
     display: flex;
@@ -272,29 +377,62 @@ a:hover {
 
 .value-item {
     text-align: center;
-    padding: 2rem;
+    padding: 2rem 1.75rem;
     border-radius: 12px;
-    background-color: #F5F1E8;
-    transition: transform 0.3s ease;
+    background-color: #FCF6E4;
+    border: 1px solid rgba(74, 155, 142, 0.18);
+    box-shadow: 0 6px 18px rgba(27, 43, 74, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.value-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
 }
 
 .value-item:hover {
     transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(27, 43, 74, 0.12);
 }
 
 .value-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 4.25rem;
+    height: 3rem;
+    padding: 0 1rem;
+    margin-bottom: 1.25rem;
+    border-radius: 999px;
+    background: #4A9B8E;
+    color: #FFFFFF;
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: 0;
+    box-shadow: inset 0 -3px 0 rgba(27, 43, 74, 0.16), 0 5px 12px rgba(74, 155, 142, 0.24);
 }
 
 .value-item h3 {
+    display: inline-block;
     color: #1B2B4A;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    background-color: rgba(232, 135, 106, 0.26);
+    font-size: 1.3rem;
+    font-weight: 800;
 }
 
 .value-item p {
     color: #3D4F6B;
-    font-size: 0.95rem;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.65;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* ============================================
@@ -516,6 +654,19 @@ a:hover {
         grid-template-columns: 1fr;
     }
 
+    .demo-video-container {
+        grid-template-columns: 1fr;
+        padding: 1.5rem;
+    }
+
+    .section-title-left {
+        text-align: center;
+    }
+
+    .demo-video-copy {
+        padding: 0;
+    }
+
     .value-grid {
         grid-template-columns: 1fr;
     }
@@ -539,7 +690,7 @@ a:hover {
     }
 
     .logo {
-        height: 50px;
+        height: 56px;
     }
 
     .nav {
@@ -573,9 +724,27 @@ a:hover {
         padding: 3rem 1rem;
     }
 
+    .demo-video-section {
+        padding: 0 1rem 3rem;
+    }
+
     .section-title {
         font-size: 1.5rem;
         margin-bottom: 1.5rem;
+    }
+
+    .demo-video-container {
+        border-radius: 18px;
+        gap: 1rem;
+    }
+
+    .demo-video-frame {
+        padding: 0.5rem;
+        border-radius: 16px;
+    }
+
+    .homepage-demo-video {
+        border-radius: 12px;
     }
 
     .use-case-card h3,

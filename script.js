@@ -54,3 +54,10 @@ const requestState = new URLSearchParams(window.location.search).get('free-pdf')
 if (requestConfirmation && requestState === 'sent') {
     requestConfirmation.hidden = false;
 }
+
+const contactConfirmation = document.getElementById('contactConfirmation');
+const contactState = new URLSearchParams(window.location.search).get('message');
+
+if (contactConfirmation && contactState === 'sent') {
+    contactConfirmation.hidden = false;
+}

@@ -3,21 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thank You - Little Pause Pages</title>
-    <meta http-equiv="refresh" content="0; url=/free-samples-thanks/">
+    <title>Request Received - Little Pause Pages</title>
     <link rel="icon" href="favicon.ico?v=3">
     <link rel="apple-touch-icon" href="assets/favicon.png">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <p style="font-family: Arial, sans-serif; padding: 2rem; color: #1B2B4A;">
-        Redirecting to the confirmation page...
-    </p>
-    <noscript>
-        <p style="font-family: Arial, sans-serif; padding: 0 2rem 2rem; color: #1B2B4A;">
-            If you are not redirected automatically, go to
-            <a href="/free-samples-thanks/">the confirmation page</a>.
-        </p>
-    </noscript>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-section">
+                <img src="assets/logo.png" alt="Little Pause Pages Logo" class="logo">
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="books.html" class="nav-link">Books</a>
+                <a href="samples.html" class="nav-link active">Free Samples</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="success-badge">Success</div>
+            <h1 class="hero-title">Request Received</h1>
+            <p class="hero-subtitle">Your free sample request is in</p>
+            <p class="hero-description">
+                We received your request successfully. After the next hourly review, we will email the printable PDF to you.
+            </p>
+        </div>
+    </section>
+
+    <section class="success-callout">
+        <div class="success-callout-inner">
+            <h2>What happens next</h2>
+            <p>The request is now in our queue. We review it hourly, then send the free PDF to the email address you submitted.</p>
+            <div class="success-pill-row">
+                <span class="success-pill">Request submitted</span>
+                <span class="success-pill">Hourly review</span>
+                <span class="success-pill">PDF by email</span>
+            </div>
+            <div class="success-actions">
+                <a class="signup-button" href="samples.html">Back to Free Samples</a>
+                <a class="secondary-button" href="index.html">Go to Home</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Little Pause Pages</h4>
+                <p>Calm moments, creative minds. Toddler-friendly coloring books and printables.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="books.html">Our Books</a></li>
+                    <li><a href="samples.html">Free Samples</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Little Pause Pages. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <style>
+        .success-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            padding: 0.55rem 1rem;
+            border-radius: 999px;
+            background-color: #4A9B8E;
+            color: #FFFFFF;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+        }
+
+        .success-callout {
+            background-color: #FFFFFF;
+            border-top: 1px solid rgba(74, 155, 142, 0.18);
+            border-bottom: 1px solid rgba(74, 155, 142, 0.18);
+            padding: 3rem 0 4rem;
+        }
+
+        .success-callout-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .success-callout h2 {
+            color: #1B2B4A;
+            margin-bottom: 0.75rem;
+        }
+
+        .success-callout p {
+            color: #3D4F6B;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .success-pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .success-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.6rem 1rem;
+            border-radius: 999px;
+            background-color: #F5F1E8;
+            color: #1B2B4A;
+            font-weight: 700;
+        }
+
+        .success-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .secondary-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 56px;
+            padding: 0.95rem 1.6rem;
+            border-radius: 12px;
+            background-color: #F5F1E8;
+            color: #1B2B4A;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .success-callout {
+                padding: 2.5rem 0 3.5rem;
+            }
+
+            .success-callout-inner {
+                padding: 0 1rem;
+            }
+        }
+    </style>
 </body>
 </html>

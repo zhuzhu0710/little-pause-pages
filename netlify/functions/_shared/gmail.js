@@ -208,12 +208,15 @@ function buildAttachmentPart({ filename, mimeType, data }) {
 
 function buildPlainEmail({ from, to, subject, text, attachment, threadId, inReplyTo, references }) {
     const boundary = `lp-${crypto.randomUUID().replace(/-/g, "")}`;
-    const headers = [
-        `From: ${from}`,
+    const headers = [];
+    if (from) {
+        headers.push(`From: ${from}`);
+    }
+    headers.push(
         `To: ${to}`,
         `Subject: ${subject}`,
         "MIME-Version: 1.0",
-    ];
+    );
 
     if (inReplyTo) {
         headers.push(`In-Reply-To: ${inReplyTo}`);

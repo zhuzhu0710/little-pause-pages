@@ -32,6 +32,10 @@ function normalizeText(value) {
     return String(value ?? "").trim();
 }
 
+function netlifyFallbackEnabled() {
+    return Netlify.env.get("FREE_SAMPLE_USE_NETLIFY_SUBMISSIONS") === "true";
+}
+
 function buildCustomerEmail({ requesterName, text }) {
     const greetingName = requesterName || "there";
     return [
@@ -66,7 +70,12 @@ function buildAdminEmail(request) {
 }
 
 async function fetchPdfBuffer(siteUrl) {
-    const pdfUrl = Netlify.env.get("SAMPLE_PACK_PDF_URL") || new URL(PDF_ASSET_PATH, siteUrl).toString();
+    const baseUrl =
+        siteUrl ||
+        Netlify.env.get("URL") ||
+        Netlify.env.get("DEPLOY_PRIME_URL") ||
+        "https://little-pause-pages.netlify.app";
+    const pdfUrl = Netlify.env.get("SAMPLE_PACK_PDF_URL") || new URL(PDF_ASSET_PATH, baseUrl).toString();
     const response = await fetch(pdfUrl);
 
     if (!response.ok) {
@@ -76,34 +85,50 @@ async function fetchPdfBuffer(siteUrl) {
     return Buffer.from(await response.arrayBuffer());
 }
 
-function isProcessedKey(source, id) {
+function sourceProcessedKey(source, id) {
     return `${source}:${id}`;
 }
 
-async function alreadyProcessed(source, id) {
-    const stored = await PROCESSED_STORE.get(isProcessedKey(source, id), { type: "json" });
-    return Boolean(stored);
+function emailProcessedKey(email) {
+    return `email:${String(email).trim().toLowerCase()}`;
 }
 
-async function markProcessed(source, id, metadata) {
-    await PROCESSED_STORE.setJSON(isProcessedKey(source, id), {
+async function alreadyProcessed(request) {
+    const sourceStored = await PROCESSED_STORE.get(sourceProcessedKey(request.source, request.id), { type: "json" });
+    if (sourceStored) {
+        return true;
+    }
+
+    if (!request.requesterEmail) {
+        return false;
+    }
+
+    const emailStored = await PROCESSED_STORE.get(emailProcessedKey(request.requesterEmail), { type: "json" });
+    return Boolean(emailStored);
+}
+
+async function markProcessed(request) {
+    const payload = {
         processedAt: new Date().toISOString(),
-        source,
-        id,
-        ...metadata,
-    });
+        source: request.source,
+        id: request.id,
+        requesterEmail: request.requesterEmail,
+        requesterName: request.requesterName,
+    };
+
+    await PROCESSED_STORE.setJSON(sourceProcessedKey(request.source, request.id), payload);
+
+    if (request.requesterEmail) {
+        await PROCESSED_STORE.setJSON(emailProcessedKey(request.requesterEmail), payload);
+    }
 }
 
 async function collectGmailRequests() {
-    const query = `in:inbox subject:"${REQUEST_EMAIL_SUBJECT}" newer_than:30d`;
+    const query = `in:inbox subject:"${REQUEST_EMAIL_SUBJECT}" is:unread newer_than:30d`;
     const messages = await listUnreadRequestMessages(query);
     const requests = [];
 
     for (const item of messages) {
-        if (await alreadyProcessed("gmail", item.id)) {
-            continue;
-        }
-
         const message = await getMessage(item.id);
         const combinedText = normalizeText(
             extractMessageText(message.payload, message.snippet || ""),
@@ -135,52 +160,64 @@ async function collectNetlifyRequests(siteId) {
     });
 }
 
+function jsonResponse(payload, status = 200) {
+    return new Response(JSON.stringify(payload), {
+        status,
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+}
+
 export default async function handler(_request, context) {
-    const siteId = context.site?.id || Netlify.env.get("NETLIFY_SITE_ID");
-    const siteUrl = context.site?.url || Netlify.env.get("SITE_URL") || "";
+    const siteId = context?.site?.id || Netlify.env.get("NETLIFY_SITE_ID");
+    const siteUrl = context?.site?.url || Netlify.env.get("SITE_URL") || "";
     const senderEmail = requiredEnv("GMAIL_SENDER_EMAIL");
     const gmailConfigured =
         Netlify.env.get("GMAIL_CLIENT_ID") &&
         Netlify.env.get("GMAIL_CLIENT_SECRET") &&
         Netlify.env.get("GMAIL_REFRESH_TOKEN");
+    const warnings = [];
 
     try {
-        if (!siteId) {
-            throw new Error("Missing site id for sample processing");
-        }
-
         let requests = [];
+        let source = "none";
 
         if (gmailConfigured) {
-            requests = await collectGmailRequests();
+            try {
+                requests = await collectGmailRequests();
+                source = "gmail";
+            } catch (error) {
+                warnings.push(`Gmail request lookup failed: ${error.message}`);
+            }
         }
 
-        if (requests.length === 0) {
+        const shouldUseNetlifyFallback =
+            requests.length === 0 &&
+            (!gmailConfigured || source !== "gmail" || netlifyFallbackEnabled());
+
+        if (shouldUseNetlifyFallback) {
             requests = await collectNetlifyRequests(siteId);
+            source = "netlify";
         }
 
         if (requests.length === 0) {
-            return new Response(
-                JSON.stringify({
-                    ok: true,
-                    processed: 0,
-                    message: "No new sample requests found.",
-                }),
-                {
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                },
-            );
+            return jsonResponse({
+                ok: true,
+                source,
+                processed: 0,
+                skipped: 0,
+                message: "No new sample requests found.",
+                warnings,
+            });
         }
 
         const pdfBuffer = await fetchPdfBuffer(siteUrl);
         const results = [];
 
         for (const request of requests) {
-            const sourceKey = isProcessedKey(request.source, request.id);
-            if (await PROCESSED_STORE.get(sourceKey, { type: "json" })) {
-                results.push({ ...request, status: "skipped" });
+            if (await alreadyProcessed(request)) {
+                results.push({ ...request, status: "skipped", reason: "Already processed" });
                 continue;
             }
 
@@ -224,10 +261,7 @@ export default async function handler(_request, context) {
                 });
             }
 
-            await markProcessed(request.source, request.id, {
-                requesterEmail: request.requesterEmail,
-                requesterName: request.requesterName,
-            });
+            await markProcessed(request);
 
             results.push({
                 ...request,
@@ -235,32 +269,23 @@ export default async function handler(_request, context) {
             });
         }
 
-        return new Response(
-            JSON.stringify({
-                ok: true,
-                processed: results.filter((item) => item.status === "processed").length,
-                skipped: results.filter((item) => item.status === "skipped").length,
-                results,
-            }),
-            {
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            },
-        );
+        return jsonResponse({
+            ok: true,
+            source,
+            processed: results.filter((item) => item.status === "processed").length,
+            skipped: results.filter((item) => item.status === "skipped").length,
+            results,
+            warnings,
+        });
     } catch (error) {
         console.error("Sample request automation failed:", error);
-        return new Response(
-            JSON.stringify({
+        return jsonResponse(
+            {
                 ok: false,
                 error: error instanceof Error ? error.message : String(error),
-            }),
-            {
-                status: 500,
-                headers: {
-                    "Content-Type": "application/json",
-                },
+                warnings,
             },
+            500,
         );
     }
 }

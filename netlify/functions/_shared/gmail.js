@@ -206,17 +206,51 @@ function buildAttachmentPart({ filename, mimeType, data }) {
     ].join("\r\n");
 }
 
-function buildPlainEmail({ from, to, subject, text, attachment, threadId, inReplyTo, references }) {
+function buildTextPart(text) {
+    return [
+        "Content-Type: text/plain; charset=\"UTF-8\"",
+        "Content-Transfer-Encoding: 7bit",
+        "",
+        text,
+    ].join("\r\n");
+}
+
+function buildHtmlPart(html) {
+    return [
+        "Content-Type: text/html; charset=\"UTF-8\"",
+        "Content-Transfer-Encoding: 7bit",
+        "",
+        html,
+    ].join("\r\n");
+}
+
+function buildAlternativePart({ boundary, text, html }) {
+    return [
+        `--${boundary}`,
+        buildTextPart(text),
+        "",
+        `--${boundary}`,
+        buildHtmlPart(html),
+        "",
+        `--${boundary}--`,
+    ].join("\r\n");
+}
+
+function buildPlainEmail({ from, to, cc, bcc, subject, text, html, attachment, threadId, inReplyTo, references }) {
     const boundary = `lp-${crypto.randomUUID().replace(/-/g, "")}`;
+    const altBoundary = `lp-alt-${crypto.randomUUID().replace(/-/g, "")}`;
     const headers = [];
     if (from) {
         headers.push(`From: ${from}`);
     }
-    headers.push(
-        `To: ${to}`,
-        `Subject: ${subject}`,
-        "MIME-Version: 1.0",
-    );
+    headers.push(`To: ${to}`);
+    if (cc) {
+        headers.push(`Cc: ${cc}`);
+    }
+    if (bcc) {
+        headers.push(`Bcc: ${bcc}`);
+    }
+    headers.push(`Subject: ${subject}`, "MIME-Version: 1.0");
 
     if (inReplyTo) {
         headers.push(`In-Reply-To: ${inReplyTo}`);
@@ -226,7 +260,7 @@ function buildPlainEmail({ from, to, subject, text, attachment, threadId, inRepl
         headers.push(`References: ${references}`);
     }
 
-    if (!attachment) {
+    if (!attachment && !html) {
         headers.push("Content-Type: text/plain; charset=\"UTF-8\"");
         return {
             raw: encodeBase64Url(`${headers.join("\r\n")}\r\n\r\n${text}`),
@@ -234,14 +268,29 @@ function buildPlainEmail({ from, to, subject, text, attachment, threadId, inRepl
         };
     }
 
+    if (!attachment && html) {
+        headers.push(`Content-Type: multipart/alternative; boundary="${altBoundary}"`);
+        return {
+            raw: encodeBase64Url(
+                `${headers.join("\r\n")}\r\n\r\n${buildAlternativePart({ boundary: altBoundary, text, html })}`,
+            ),
+            threadId,
+        };
+    }
+
     headers.push(`Content-Type: multipart/mixed; boundary="${boundary}"`);
+
+    const messagePart = html
+        ? [
+              `Content-Type: multipart/alternative; boundary="${altBoundary}"`,
+              "",
+              buildAlternativePart({ boundary: altBoundary, text, html }),
+          ].join("\r\n")
+        : buildTextPart(text);
 
     const sections = [
         `--${boundary}`,
-        "Content-Type: text/plain; charset=\"UTF-8\"",
-        "Content-Transfer-Encoding: 7bit",
-        "",
-        text,
+        messagePart,
         "",
         `--${boundary}`,
         buildAttachmentPart(attachment),
@@ -259,8 +308,11 @@ function buildPlainEmail({ from, to, subject, text, attachment, threadId, inRepl
 export async function sendGmailMessage({
     from,
     to,
+    cc,
+    bcc,
     subject,
     text,
+    html,
     attachment,
     threadId,
     inReplyTo,
@@ -269,8 +321,11 @@ export async function sendGmailMessage({
     const payload = buildPlainEmail({
         from,
         to,
+        cc,
+        bcc,
         subject,
         text,
+        html,
         attachment,
         threadId,
         inReplyTo,

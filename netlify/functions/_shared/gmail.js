@@ -30,6 +30,14 @@ function wrapBase64(value) {
     return value.match(/.{1,76}/g)?.join("\r\n") ?? value;
 }
 
+function encodeHeader(value) {
+    const text = String(value ?? "");
+    if (/^[\x00-\x7F]*$/.test(text)) {
+        return text;
+    }
+    return `=?UTF-8?B?${Buffer.from(text, "utf8").toString("base64")}?=`;
+}
+
 function stripHtml(html) {
     return html
         .replace(/<script[\s\S]*?<\/script>/gi, " ")
@@ -250,7 +258,7 @@ function buildPlainEmail({ from, to, cc, bcc, subject, text, html, attachment, t
     if (bcc) {
         headers.push(`Bcc: ${bcc}`);
     }
-    headers.push(`Subject: ${subject}`, "MIME-Version: 1.0");
+    headers.push(`Subject: ${encodeHeader(subject)}`, "MIME-Version: 1.0");
 
     if (inReplyTo) {
         headers.push(`In-Reply-To: ${inReplyTo}`);
